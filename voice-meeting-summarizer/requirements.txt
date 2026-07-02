@@ -1,0 +1,7 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+streamlit>=1.32
+faster-whisper>=1.0.3
+transformers>=4.40,<5.0
+torch>=2.2
+sentencepiece>=0.2.0
+deep-translator>=1.11.4
