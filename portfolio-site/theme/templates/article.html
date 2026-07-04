@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }} &mdash; {{ SITENAME }}{% endblock %}
+
+{% block content %}
+<article class="project-detail">
+    <p class="terminal-tag">&gt; PROJECT</p>
+    <h1>{{ article.title }}</h1>
+    <p class="project-meta">{{ article.locale_date }}</p>
+
+    {% if article.tags %}
+    <div class="tag-row">
+        {% for tag in article.tags %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="project-body">
+        {{ article.content }}
+    </div>
+
+    <a class="back-link" href="{{ SITEURL }}/">&larr; back to all projects</a>
+</article>
+{% endblock %}

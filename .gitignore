@@ -6,3 +6,5 @@ __pycache__/
 venv/
 invoice-generator/email_config.json
 invoice-generator/generated_invoices/*.pdf
+portfolio-site/output/
+portfolio-site/contentful_config.json

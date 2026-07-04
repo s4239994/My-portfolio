@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <p class="terminal-tag">&gt; GET SET GO</p>
+    <h1>{{ SITENAME }}</h1>
+    <p class="hero-subtitle">A running record of what got built, and how.</p>
+</section>
+
+<section class="project-grid">
+    {% for article in articles_page.object_list %}
+    <a class="project-card" href="{{ SITEURL }}/{{ article.url }}">
+        <h2>{{ article.title }}</h2>
+        {% if article.summary %}
+        <div class="project-summary">{{ article.summary }}</div>
+        {% endif %}
+        {% if article.tags %}
+        <div class="tag-row">
+            {% for tag in article.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <span class="read-more">view project &rarr;</span>
+    </a>
+    {% endfor %}
+</section>
+{% endblock %}

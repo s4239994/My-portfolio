@@ -1,0 +1,62 @@
+name: Deploy Portfolio Site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "portfolio-site/**"
+      - ".github/workflows/deploy-portfolio.yml"
+  workflow_dispatch: {}
+  repository_dispatch:
+    types: [contentful-publish]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        working-directory: portfolio-site
+        run: pip install -r requirements.txt
+
+      - name: Fetch CMS content (optional)
+        working-directory: portfolio-site
+        env:
+          CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+          CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+        run: python content_fetch.py
+
+      - name: Build site with Pelican
+        working-directory: portfolio-site
+        run: pelican content -s publishconf.py -o output
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: portfolio-site/output
+
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
