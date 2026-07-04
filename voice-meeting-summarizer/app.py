@@ -26,18 +26,33 @@ st.markdown(
         color: #39FF88;
         opacity: 0.85;
         letter-spacing: 2px;
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
+    .hero-card {
+        background: linear-gradient(135deg, rgba(57,255,136,0.08), rgba(57,255,136,0.02));
+        border: 1px solid #2a2b2f;
+        border-left: 4px solid #39FF88;
+        border-radius: 12px;
+        padding: 1.5rem 1.75rem;
+        margin-bottom: 1.75rem;
+    }
+    .hero-title { margin: 0.3rem 0 0.4rem; font-size: 1.9rem; }
+    .hero-caption { color: #9a9a9a; margin: 0; font-size: 0.95rem; }
     </style>
     """,
     unsafe_allow_html=True,
 )
 
-st.markdown('<p class="terminal-tag">&gt; GET SET GO</p>', unsafe_allow_html=True)
-st.title("🎙️ Voice-to-Text Meeting Summarizer")
-st.caption(
-    "Upload a meeting recording. Get a clean transcript, a summary, and action items — "
-    "automatically, running on your own computer, for free."
+st.markdown(
+    """
+    <div class="hero-card">
+        <p class="terminal-tag">&gt; VIBE STATE: MEETINGS CLARIFIED AND SUMMARIZED</p>
+        <p class="hero-title">🎙️ Voice-to-Text Meeting Summarizer</p>
+        <p class="hero-caption">Upload a meeting recording. Get a clean transcript, a summary,
+        and action items — automatically, running on your own computer, for free.</p>
+    </div>
+    """,
+    unsafe_allow_html=True,
 )
 
 with st.sidebar:

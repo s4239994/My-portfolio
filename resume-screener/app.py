@@ -60,18 +60,38 @@ st.markdown(
         color: #39FF88;
         opacity: 0.85;
         letter-spacing: 2px;
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
+    .hero-card {
+        background: linear-gradient(135deg, rgba(245,197,66,0.10), rgba(57,255,136,0.02));
+        border: 1px solid #2a2b2f;
+        border-left: 4px solid #f5c542;
+        border-radius: 12px;
+        padding: 1.5rem 1.75rem;
+        margin-bottom: 1.75rem;
+    }
+    .hero-title { margin: 0.3rem 0 0.4rem; font-size: 1.9rem; }
+    .hero-caption { color: #9a9a9a; margin: 0; font-size: 0.95rem; }
+    .input-card {
+        background: #17181b; border: 1px solid #2a2b2f; border-radius: 12px;
+        padding: 1.1rem 1.25rem 0.6rem; height: 100%;
+    }
+    .input-card h4 { margin-top: 0; }
     </style>
     """,
     unsafe_allow_html=True,
 )
 
-st.markdown('<p class="terminal-tag">&gt; GET SET GO</p>', unsafe_allow_html=True)
-st.title("🧭 AI Resume Screening & Keyword Matcher")
-st.caption(
-    "Parses a resume, maps it to a skill graph, and scores it against a job "
-    "description -- skills, experience, and semantic potential."
+st.markdown(
+    """
+    <div class="hero-card">
+        <p class="terminal-tag">&gt; VIBE STATE: AI SCREENING VIBRATION ACTIVE</p>
+        <p class="hero-title">🧭 AI Resume Screening &amp; Keyword Matcher</p>
+        <p class="hero-caption">Parses a resume, maps it to a skill graph, and scores it
+        against a job description -- skills, experience, and semantic potential.</p>
+    </div>
+    """,
+    unsafe_allow_html=True,
 )
 
 taxonomy = skills.load_taxonomy()
@@ -79,13 +99,15 @@ taxonomy = skills.load_taxonomy()
 col1, col2 = st.columns(2)
 
 with col1:
-    st.subheader("Resume")
+    st.markdown('<div class="input-card"><h4>📄 Resume</h4>', unsafe_allow_html=True)
     resume_file = st.file_uploader("Upload a resume (PDF, DOCX, or TXT)", type=["pdf", "docx", "txt"])
     resume_text_input = st.text_area("...or paste resume text", height=200)
+    st.markdown("</div>", unsafe_allow_html=True)
 
 with col2:
-    st.subheader("Job description")
-    jd_text_input = st.text_area("Paste the job description", height=280)
+    st.markdown('<div class="input-card"><h4>🎯 Job description</h4>', unsafe_allow_html=True)
+    jd_text_input = st.text_area("Paste the job description", height=280, label_visibility="collapsed")
+    st.markdown("</div>", unsafe_allow_html=True)
 
 screen_clicked = st.button("Screen Resume", type="primary")
 
