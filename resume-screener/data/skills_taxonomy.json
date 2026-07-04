@@ -1,0 +1,38 @@
+{
+  "categories": {
+    "Programming Languages": ["Python", "JavaScript", "TypeScript", "Java", "C++", "C#", "Go", "Rust", "SQL", "PHP", "Ruby"],
+    "Frontend": ["React", "Vue", "Angular", "Next.js", "HTML", "CSS", "Tailwind CSS", "Redux"],
+    "Backend": ["Django", "Flask", "FastAPI", "Express", "Spring Boot", "Node.js", ".NET", "REST APIs", "GraphQL"],
+    "Data & ML": ["Machine Learning", "Deep Learning", "TensorFlow", "PyTorch", "Pandas", "NumPy", "scikit-learn", "Data Analysis", "Natural Language Processing", "Computer Vision"],
+    "Cloud & DevOps": ["AWS", "Azure", "GCP", "Docker", "Kubernetes", "CI/CD", "Terraform", "Linux", "Git"],
+    "Databases": ["PostgreSQL", "MySQL", "MongoDB", "Redis", "SQLite", "Elasticsearch"],
+    "Soft Skills": ["Communication", "Leadership", "Teamwork", "Problem Solving", "Project Management", "Time Management", "Adaptability", "Critical Thinking"]
+  },
+  "related_links": [
+    ["React", "JavaScript"],
+    ["Vue", "JavaScript"],
+    ["Angular", "TypeScript"],
+    ["Django", "Python"],
+    ["Flask", "Python"],
+    ["FastAPI", "Python"],
+    ["Pandas", "Python"],
+    ["NumPy", "Python"],
+    ["scikit-learn", "Python"],
+    ["TensorFlow", "Machine Learning"],
+    ["PyTorch", "Machine Learning"],
+    ["Deep Learning", "Machine Learning"],
+    ["Natural Language Processing", "Machine Learning"],
+    ["Computer Vision", "Machine Learning"],
+    ["Docker", "Kubernetes"],
+    ["Kubernetes", "Cloud & DevOps"],
+    ["Node.js", "JavaScript"],
+    ["Express", "Node.js"],
+    ["Next.js", "React"],
+    ["Redux", "React"],
+    ["REST APIs", "Backend"],
+    ["GraphQL", "Backend"],
+    ["Git", "CI/CD"],
+    ["Leadership", "Project Management"],
+    ["Communication", "Teamwork"]
+  ]
+}
