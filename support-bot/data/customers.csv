@@ -1,0 +1,3 @@
+customer_id,name,email,plan_tier,recent_order,order_status
+C001,Priya Shah,priya@example.com,Pro,Order #10432,Shipped
+C002,Marcus Webb,marcus@example.com,Free,Order #10290,Delivered
