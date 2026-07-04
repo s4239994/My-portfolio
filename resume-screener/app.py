@@ -52,13 +52,22 @@ st.markdown(
     .pulse-weak { animation: shake-weak 0.5s ease-in-out 1; border-radius: 16px; }
     .skill-tag {
         display: inline-block; padding: 3px 10px; margin: 3px;
-        border-radius: 999px; font-family: monospace; font-size: 0.8rem;
+        border-radius: 999px; font-family: "Consolas", "SFMono-Regular", Menlo, monospace;
+        font-size: 0.8rem;
+    }
+    .terminal-tag {
+        font-family: "Consolas", "SFMono-Regular", Menlo, monospace;
+        color: #39FF88;
+        opacity: 0.85;
+        letter-spacing: 2px;
+        font-size: 0.85rem;
     }
     </style>
     """,
     unsafe_allow_html=True,
 )
 
+st.markdown('<p class="terminal-tag">&gt; GET SET GO</p>', unsafe_allow_html=True)
 st.title("🧭 AI Resume Screening & Keyword Matcher")
 st.caption(
     "Parses a resume, maps it to a skill graph, and scores it against a job "
@@ -112,7 +121,7 @@ if screen_clicked:
         st.markdown(
             f"""
             <div class="{pulse_class}" style="border: 2px solid {color}; padding: 24px; text-align: center;">
-                <div style="font-size: 0.9rem; color: #9a9a9a; font-family: monospace;">OVERALL MATCH</div>
+                <div style="font-size: 0.9rem; color: #9a9a9a; font-family: 'Consolas', 'SFMono-Regular', Menlo, monospace;">OVERALL MATCH</div>
                 <div style="font-size: 3rem; font-weight: 700; color: {color};">{result['overall_score']}%</div>
                 <div style="font-size: 1rem; color: {color};">{TIER_LABELS[result['tier']]}</div>
             </div>

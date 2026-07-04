@@ -9,6 +9,22 @@ import sound
 
 st.set_page_config(page_title="Web Scraper Pipeline", page_icon="🕸️", layout="wide")
 
+st.markdown(
+    """
+    <style>
+    .terminal-tag {
+        font-family: "Consolas", "SFMono-Regular", Menlo, monospace;
+        color: #39FF88;
+        opacity: 0.85;
+        letter-spacing: 2px;
+        font-size: 0.85rem;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.markdown('<p class="terminal-tag">&gt; GET SET GO</p>', unsafe_allow_html=True)
 st.title("🕸️ Automated Web Scraper & Data Pipeline")
 st.caption(
     "Streams book listings from books.toscrape.com (a public scraping sandbox site) "

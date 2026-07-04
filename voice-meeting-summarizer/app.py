@@ -22,10 +22,11 @@ st.markdown(
     """
     <style>
     .terminal-tag {
-        font-family: monospace;
+        font-family: "Consolas", "SFMono-Regular", Menlo, monospace;
         color: #39FF88;
-        opacity: 0.8;
+        opacity: 0.85;
         letter-spacing: 2px;
+        font-size: 0.85rem;
     }
     </style>
     """,

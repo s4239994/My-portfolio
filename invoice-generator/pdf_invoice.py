@@ -3,7 +3,8 @@ from pathlib import Path
 from fpdf import FPDF
 
 OUTPUT_DIR = Path(__file__).parent / "generated_invoices"
-ACCENT_COLOR = (36, 199, 118)  # the same signature green used across these projects
+ACCENT_COLOR = (36, 199, 118)  # a darker variant of the brand green (#39FF88) -- the
+# pure neon shade has poor contrast against white text on a PDF's white background
 
 
 class InvoicePDF(FPDF):
