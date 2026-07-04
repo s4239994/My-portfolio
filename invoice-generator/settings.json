@@ -1,0 +1,8 @@
+{
+  "business_name": "Your IT Services",
+  "footer_note": "Thank you for your business. Payment is due within the stated terms.",
+  "tax_label": "Tax",
+  "tax_rate_percent": 10,
+  "late_fee_flat_amount": 25.0,
+  "currency_symbol": "$"
+}

@@ -1,0 +1,4 @@
+client_id,date,description,quantity,unit_price,billed
+C001,2026-07-01,Server maintenance,3,50,no
+C001,2026-07-02,Firewall configuration,1,120,no
+C002,2026-07-01,Network troubleshooting,2,75,no

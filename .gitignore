@@ -4,3 +4,5 @@ __pycache__/
 *.log
 .venv/
 venv/
+invoice-generator/email_config.json
+invoice-generator/generated_invoices/*.pdf
