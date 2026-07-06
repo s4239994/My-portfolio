@@ -13,51 +13,75 @@ st.set_page_config(page_title="Signal Engine", page_icon="📡", layout="wide")
 
 SAMPLE_LEADS_FILE = Path(__file__).parent / "data" / "sample_leads.csv"
 
-ACCENT = "#a78bfa"
+ACCENT = "#8b5cf6"
+ACCENT_2 = "#ff6b6b"
 
 
-def score_color(score: int) -> str:
+def score_color(score: int) -> tuple[str, str]:
+    """Returns (text color, tinted background) for a score pill."""
     if score >= 60:
-        return "#39FF88"
+        return "#0f9d58", "#e3f8ec"
     if score >= 30:
-        return "#f5c542"
-    return "#ff6666"
+        return "#b8860b", "#fff3d6"
+    return "#d1495b", "#fde8ea"
 
 
 st.markdown(
     f"""
     <style>
-    .terminal-tag {{
-        font-family: "Consolas", "SFMono-Regular", Menlo, monospace;
-        color: #39FF88; opacity: 0.85; letter-spacing: 2px; font-size: 0.8rem;
+    [data-testid="stAppViewContainer"] {{
+        background: linear-gradient(135deg, #fff8f0 0%, #fdeef5 45%, #f3ecff 100%);
+    }}
+    [data-testid="stSidebar"] {{
+        background: #ffffff; border-right: 1px solid #f1e6f7;
+    }}
+    .tag-pill {{
+        display: inline-block; font-family: "Segoe UI", sans-serif; font-weight: 700;
+        letter-spacing: 1.5px; font-size: 0.72rem; color: #ffffff;
+        background: linear-gradient(135deg, {ACCENT_2}, {ACCENT});
+        padding: 0.25rem 0.7rem; border-radius: 999px; margin-bottom: 0.7rem;
     }}
     .hero-card {{
-        background: linear-gradient(135deg, rgba(167,139,250,0.12), rgba(57,255,136,0.02));
-        border: 1px solid #2a2b2f; border-left: 4px solid {ACCENT};
-        border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.5rem;
+        background: #ffffff; border-radius: 20px; padding: 1.8rem 2rem; margin-bottom: 1.6rem;
+        box-shadow: 0 10px 30px rgba(139, 92, 246, 0.12);
+        border-top: 5px solid transparent;
+        border-image: linear-gradient(90deg, {ACCENT_2}, {ACCENT}) 1;
+        position: relative; overflow: hidden;
     }}
-    .hero-title {{ margin: 0.3rem 0 0.4rem; font-size: 1.9rem; }}
-    .hero-caption {{ color: #9a9a9a; margin: 0; font-size: 0.95rem; }}
+    .hero-title {{
+        margin: 0.2rem 0 0.5rem; font-size: 2.1rem; font-weight: 800;
+        background: linear-gradient(135deg, #2d2b3a, {ACCENT});
+        -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }}
+    .hero-caption {{ color: #6f6b7d; margin: 0; font-size: 0.98rem; line-height: 1.5; }}
     .stat-card {{
-        background: #17181b; border: 1px solid #2a2b2f; border-radius: 10px;
-        padding: 0.9rem; text-align: center;
+        background: #ffffff; border-radius: 16px; padding: 1rem; text-align: center;
+        box-shadow: 0 6px 18px rgba(139, 92, 246, 0.10); border-top: 3px solid {ACCENT};
     }}
-    .stat-card .value {{ font-size: 1.6rem; font-weight: 700; color: {ACCENT}; }}
-    .stat-card .label {{ font-size: 0.8rem; color: #9a9a9a; margin-top: 2px; }}
+    .stat-card .value {{
+        font-size: 1.7rem; font-weight: 800;
+        background: linear-gradient(135deg, {ACCENT_2}, {ACCENT});
+        -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }}
+    .stat-card .label {{ font-size: 0.8rem; color: #6f6b7d; margin-top: 2px; }}
     .terminal-log {{
-        background: #0a0a0b; border: 1px solid #2a2b2f; border-radius: 8px;
-        padding: 0.85rem 1.1rem; font-family: "Consolas", "SFMono-Regular", Menlo, monospace;
-        font-size: 0.8rem; color: #39FF88; max-height: 340px; overflow-y: auto;
-        white-space: pre-wrap; line-height: 1.5;
+        background: #1a1625; border-radius: 14px; box-shadow: 0 8px 24px rgba(139, 92, 246, 0.18);
+        padding: 0.95rem 1.2rem; font-family: "Consolas", "SFMono-Regular", Menlo, monospace;
+        font-size: 0.8rem; color: #d9c9ff; max-height: 340px; overflow-y: auto;
+        white-space: pre-wrap; line-height: 1.6;
     }}
     .lead-card {{
-        background: #17181b; border: 1px solid #2a2b2f; border-radius: 10px;
-        padding: 1rem 1.25rem; margin-bottom: 0.6rem;
+        background: #ffffff; border-radius: 16px; padding: 1.1rem 1.4rem; margin-bottom: 0.75rem;
+        box-shadow: 0 6px 18px rgba(139, 92, 246, 0.09);
+        border-left: 5px solid {ACCENT};
     }}
-    .lead-score {{ font-size: 1.4rem; font-weight: 700; }}
+    .lead-score {{
+        font-size: 1rem; font-weight: 800; padding: 0.25rem 0.7rem; border-radius: 999px;
+    }}
     .opener-box {{
-        background: #0e0e10; border-left: 3px solid {ACCENT}; border-radius: 6px;
-        padding: 0.6rem 0.9rem; margin-top: 0.5rem; font-size: 0.9rem; color: #e5e5e5;
+        background: linear-gradient(135deg, #f6f0ff, #fff0f4); border-left: 3px solid {ACCENT};
+        border-radius: 10px; padding: 0.7rem 1rem; margin-top: 0.6rem; font-size: 0.9rem;
+        color: #3d3a4d;
     }}
     </style>
     """,
@@ -72,7 +96,7 @@ def stat_card(value, label: str) -> str:
 st.markdown(
     """
     <div class="hero-card">
-        <p class="terminal-tag">&gt; VIBE STATE: SIGNAL ACQUIRED</p>
+        <span class="tag-pill">✨ SIGNAL ACQUIRED</span>
         <p class="hero-title">📡 Signal Engine</p>
         <p class="hero-caption">Upload a lead list. It fetches each company's real public
         signals, scores them against your ideal customer profile, and drafts a
@@ -177,7 +201,7 @@ if "signal_results" in st.session_state and st.session_state["signal_results"]:
     st.subheader("Results")
 
     for r in sorted(results, key=lambda x: x["score"], reverse=True):
-        color = score_color(r["score"])
+        text_color, bg_color = score_color(r["score"])
         reasons_text = "; ".join(r["reasons"]) or "no strong signals detected"
         opener_html = ""
         if r.get("opener"):
@@ -187,10 +211,10 @@ if "signal_results" in st.session_state and st.session_state["signal_results"]:
             f"""
             <div class="lead-card">
                 <div style="display:flex; justify-content:space-between; align-items:center;">
-                    <b>{html.escape(r['name'])}</b>
-                    <span class="lead-score" style="color:{color};">{r['score']}/100</span>
+                    <b style="color:#2d2b3a; font-size:1.05rem;">{html.escape(r['name'])}</b>
+                    <span class="lead-score" style="color:{text_color}; background:{bg_color};">{r['score']}/100</span>
                 </div>
-                <div style="color:#9a9a9a; font-size:0.85rem; margin-top:4px;">{html.escape(reasons_text)}</div>
+                <div style="color:#6f6b7d; font-size:0.85rem; margin-top:4px;">{html.escape(reasons_text)}</div>
                 {opener_html}
             </div>
             """,
