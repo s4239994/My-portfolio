@@ -15,6 +15,7 @@ SAMPLE_LEADS_FILE = Path(__file__).parent / "data" / "sample_leads.csv"
 
 ACCENT = "#8b5cf6"
 ACCENT_2 = "#ff6b6b"
+ACCENT_3 = "#ffa94d"
 
 
 def score_color(score: int) -> tuple[str, str]:
@@ -30,58 +31,97 @@ st.markdown(
     f"""
     <style>
     [data-testid="stAppViewContainer"] {{
-        background: linear-gradient(135deg, #fff8f0 0%, #fdeef5 45%, #f3ecff 100%);
+        background:
+            radial-gradient(at 15% 10%, rgba(255,107,107,0.30) 0, transparent 45%),
+            radial-gradient(at 85% 0%, rgba(139,92,246,0.32) 0, transparent 45%),
+            radial-gradient(at 0% 90%, rgba(255,169,77,0.25) 0, transparent 45%),
+            radial-gradient(at 90% 95%, rgba(72,190,251,0.25) 0, transparent 45%),
+            #fdfbf7;
     }}
     [data-testid="stSidebar"] {{
-        background: #ffffff; border-right: 1px solid #f1e6f7;
+        background: rgba(255,255,255,0.6); backdrop-filter: blur(14px);
+        border-right: 1px solid rgba(139,92,246,0.15);
     }}
+    [data-testid="stSidebar"] h2 {{ color: #2d2b3a; font-weight: 800; }}
+
     .tag-pill {{
         display: inline-block; font-family: "Segoe UI", sans-serif; font-weight: 700;
-        letter-spacing: 1.5px; font-size: 0.72rem; color: #ffffff;
+        letter-spacing: 1.5px; font-size: 0.75rem; color: #ffffff;
         background: linear-gradient(135deg, {ACCENT_2}, {ACCENT});
-        padding: 0.25rem 0.7rem; border-radius: 999px; margin-bottom: 0.7rem;
+        padding: 0.3rem 0.85rem; border-radius: 999px; margin-bottom: 0.9rem;
+        box-shadow: 0 4px 16px rgba(139, 92, 246, 0.45);
     }}
     .hero-card {{
-        background: #ffffff; border-radius: 20px; padding: 1.8rem 2rem; margin-bottom: 1.6rem;
-        box-shadow: 0 10px 30px rgba(139, 92, 246, 0.12);
-        border-top: 5px solid transparent;
-        border-image: linear-gradient(90deg, {ACCENT_2}, {ACCENT}) 1;
+        background: rgba(255,255,255,0.55); backdrop-filter: blur(20px);
+        border: 1px solid rgba(255,255,255,0.8);
+        border-radius: 26px; padding: 2.4rem 2.6rem; margin-bottom: 1.8rem;
+        box-shadow: 0 20px 60px rgba(139, 92, 246, 0.22);
         position: relative; overflow: hidden;
     }}
     .hero-title {{
-        margin: 0.2rem 0 0.5rem; font-size: 2.1rem; font-weight: 800;
-        background: linear-gradient(135deg, #2d2b3a, {ACCENT});
+        margin: 0.2rem 0 0.6rem; font-size: 3.1rem; font-weight: 900; letter-spacing: -1px;
+        background: linear-gradient(120deg, {ACCENT_2} 0%, {ACCENT} 55%, {ACCENT_3} 100%);
         -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
     }}
-    .hero-caption {{ color: #6f6b7d; margin: 0; font-size: 0.98rem; line-height: 1.5; }}
+    .hero-caption {{ color: #4a4658; margin: 0; font-size: 1.05rem; line-height: 1.6; max-width: 640px; }}
+
     .stat-card {{
-        background: #ffffff; border-radius: 16px; padding: 1rem; text-align: center;
-        box-shadow: 0 6px 18px rgba(139, 92, 246, 0.10); border-top: 3px solid {ACCENT};
+        background: rgba(255,255,255,0.65); backdrop-filter: blur(16px);
+        border: 1px solid rgba(255,255,255,0.9);
+        border-radius: 18px; padding: 1.2rem; text-align: center;
+        box-shadow: 0 10px 28px rgba(139, 92, 246, 0.16);
+        transition: transform 0.15s ease;
     }}
     .stat-card .value {{
-        font-size: 1.7rem; font-weight: 800;
-        background: linear-gradient(135deg, {ACCENT_2}, {ACCENT});
+        font-size: 2rem; font-weight: 900;
+        background: linear-gradient(120deg, {ACCENT_2}, {ACCENT});
         -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
     }}
-    .stat-card .label {{ font-size: 0.8rem; color: #6f6b7d; margin-top: 2px; }}
+    .stat-card .label {{ font-size: 0.82rem; color: #6f6b7d; margin-top: 3px; font-weight: 600; }}
+
     .terminal-log {{
-        background: #1a1625; border-radius: 14px; box-shadow: 0 8px 24px rgba(139, 92, 246, 0.18);
-        padding: 0.95rem 1.2rem; font-family: "Consolas", "SFMono-Regular", Menlo, monospace;
-        font-size: 0.8rem; color: #d9c9ff; max-height: 340px; overflow-y: auto;
-        white-space: pre-wrap; line-height: 1.6;
+        background: linear-gradient(160deg, #251b3d, #1a1625);
+        border: 1px solid rgba(139,92,246,0.35);
+        border-radius: 18px; box-shadow: 0 10px 32px rgba(139, 92, 246, 0.28);
+        padding: 1.1rem 1.3rem; font-family: "Consolas", "SFMono-Regular", Menlo, monospace;
+        font-size: 0.82rem; color: #e0d4ff; max-height: 340px; overflow-y: auto;
+        white-space: pre-wrap; line-height: 1.7;
     }}
+
     .lead-card {{
-        background: #ffffff; border-radius: 16px; padding: 1.1rem 1.4rem; margin-bottom: 0.75rem;
-        box-shadow: 0 6px 18px rgba(139, 92, 246, 0.09);
-        border-left: 5px solid {ACCENT};
+        background: rgba(255,255,255,0.7); backdrop-filter: blur(16px);
+        border: 1px solid rgba(255,255,255,0.9);
+        border-radius: 20px; padding: 1.3rem 1.6rem; margin-bottom: 0.9rem;
+        box-shadow: 0 10px 28px rgba(139, 92, 246, 0.14);
+        border-left: 6px solid {ACCENT};
+        transition: transform 0.15s ease;
     }}
+    .lead-card:hover {{ transform: translateY(-2px); }}
     .lead-score {{
-        font-size: 1rem; font-weight: 800; padding: 0.25rem 0.7rem; border-radius: 999px;
+        font-size: 1.05rem; font-weight: 900; padding: 0.3rem 0.85rem; border-radius: 999px;
     }}
     .opener-box {{
-        background: linear-gradient(135deg, #f6f0ff, #fff0f4); border-left: 3px solid {ACCENT};
-        border-radius: 10px; padding: 0.7rem 1rem; margin-top: 0.6rem; font-size: 0.9rem;
+        background: linear-gradient(120deg, rgba(139,92,246,0.10), rgba(255,107,107,0.10));
+        border: 1px solid rgba(139,92,246,0.2); border-left: 4px solid {ACCENT};
+        border-radius: 12px; padding: 0.8rem 1.1rem; margin-top: 0.7rem; font-size: 0.92rem;
         color: #3d3a4d;
+    }}
+
+    .stButton > button {{
+        background: linear-gradient(120deg, {ACCENT_2}, {ACCENT}) !important;
+        color: #ffffff !important; border: none !important; font-weight: 800 !important;
+        border-radius: 999px !important; padding: 0.6rem 1.6rem !important;
+        box-shadow: 0 8px 24px rgba(139, 92, 246, 0.45) !important;
+        transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+    }}
+    .stButton > button:hover {{
+        transform: translateY(-2px) scale(1.02) !important;
+        box-shadow: 0 12px 32px rgba(139, 92, 246, 0.55) !important;
+    }}
+    .stDownloadButton > button {{
+        background: linear-gradient(120deg, {ACCENT_3}, {ACCENT_2}) !important;
+        color: #ffffff !important; border: none !important; font-weight: 800 !important;
+        border-radius: 999px !important; box-shadow: 0 8px 24px rgba(255, 107, 107, 0.4) !important;
     }}
     </style>
     """,
