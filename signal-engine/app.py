@@ -13,10 +13,10 @@ st.set_page_config(page_title="Signal Engine", page_icon="📡", layout="wide")
 
 SAMPLE_LEADS_FILE = Path(__file__).parent / "data" / "sample_leads.csv"
 
-ACCENT = "#d4af37"
-ACCENT_2 = "#b8860b"
-ACCENT_3 = "#f4e5b2"
-IVORY = "#f3ead9"
+ACCENT = "#3b82f6"
+ACCENT_2 = "#1d4ed8"
+ACCENT_3 = "#93c5fd"
+IVORY = "#eceef1"
 
 
 def score_color(score: int) -> tuple[str, str]:
@@ -31,45 +31,45 @@ def score_color(score: int) -> tuple[str, str]:
 st.markdown(
     f"""
     <style>
-    [data-testid="stAppViewContainer"] {{ background: #0e2a20; }}
+    [data-testid="stAppViewContainer"] {{ background: #1e2128; }}
     [data-testid="stAppViewContainer"] * {{ color: {IVORY}; }}
     [data-testid="stSidebar"] {{
-        background: #0b241b; border-right: 1px solid rgba(212,175,55,0.18);
+        background: #181a1f; border-right: 1px solid rgba(59,130,246,0.18);
     }}
     [data-testid="stSidebar"] h2 {{ color: {ACCENT}; font-weight: 700; }}
     [data-testid="stSidebar"] label, [data-testid="stSidebar"] .stCaption {{ color: {IVORY} !important; }}
 
     .tag-pill {{
         display: inline-block; font-weight: 600; letter-spacing: 1.5px; font-size: 0.72rem;
-        color: {ACCENT}; border: 1px solid rgba(212,175,55,0.4);
+        color: {ACCENT}; border: 1px solid rgba(59,130,246,0.4);
         padding: 0.2rem 0.7rem; border-radius: 4px; margin-bottom: 0.9rem;
     }}
     .hero-card {{
-        background: #123326; border: 1px solid rgba(212,175,55,0.2);
+        background: #262a32; border: 1px solid rgba(59,130,246,0.2);
         border-bottom: 2px solid {ACCENT};
         border-radius: 10px; padding: 2rem 2.2rem; margin-bottom: 1.6rem;
     }}
     .hero-title {{
         margin: 0.2rem 0 0.6rem; font-size: 2.3rem; font-weight: 700; color: {IVORY};
     }}
-    .hero-caption {{ color: #a8a196 !important; margin: 0; font-size: 1rem; line-height: 1.6; max-width: 640px; }}
+    .hero-caption {{ color: #9aa0ab !important; margin: 0; font-size: 1rem; line-height: 1.6; max-width: 640px; }}
 
     .stat-card {{
-        background: #123326; border: 1px solid rgba(212,175,55,0.15);
+        background: #262a32; border: 1px solid rgba(59,130,246,0.15);
         border-radius: 8px; padding: 1.1rem; text-align: center;
     }}
     .stat-card .value {{ font-size: 1.7rem; font-weight: 700; color: {ACCENT}; }}
-    .stat-card .label {{ font-size: 0.8rem; color: #a8a196 !important; margin-top: 2px; }}
+    .stat-card .label {{ font-size: 0.8rem; color: #9aa0ab !important; margin-top: 2px; }}
 
     .terminal-log {{
-        background: #081a13; border: 1px solid rgba(212,175,55,0.15);
+        background: #15171b; border: 1px solid rgba(59,130,246,0.15);
         border-radius: 8px; padding: 0.9rem 1.15rem; font-family: "Consolas", "SFMono-Regular", Menlo, monospace;
-        font-size: 0.8rem; color: #cfc4a8 !important; max-height: 340px; overflow-y: auto;
+        font-size: 0.8rem; color: {ACCENT_3} !important; max-height: 340px; overflow-y: auto;
         white-space: pre-wrap; line-height: 1.6;
     }}
 
     .lead-card {{
-        background: #123326; border: 1px solid rgba(212,175,55,0.15);
+        background: #262a32; border: 1px solid rgba(59,130,246,0.15);
         border-radius: 8px; padding: 1.05rem 1.3rem; margin-bottom: 0.7rem;
         border-left: 3px solid {ACCENT};
     }}
@@ -77,14 +77,14 @@ st.markdown(
         font-size: 1rem; font-weight: 700; padding: 0.25rem 0.7rem; border-radius: 4px;
     }}
     .opener-box {{
-        background: #0e2a20; border-left: 2px solid {ACCENT};
+        background: #1e2128; border-left: 2px solid {ACCENT};
         border-radius: 4px; padding: 0.65rem 0.95rem; margin-top: 0.6rem; font-size: 0.9rem;
         color: {IVORY} !important;
     }}
 
     .stButton > button {{
         background: {ACCENT} !important;
-        color: #12281f !important; border: none !important; font-weight: 700 !important;
+        color: #ffffff !important; border: none !important; font-weight: 700 !important;
         border-radius: 6px !important; padding: 0.55rem 1.5rem !important;
     }}
     .stButton > button:hover {{ background: {ACCENT_2} !important; }}
@@ -224,7 +224,7 @@ if "signal_results" in st.session_state and st.session_state["signal_results"]:
                     <b style="color:{IVORY}; font-size:1rem;">{html.escape(r['name'])}</b>
                     <span class="lead-score" style="color:{text_color}; background:{bg_color};">{r['score']}/100</span>
                 </div>
-                <div style="color:#cfc4a8; font-size:0.85rem; margin-top:4px;">{html.escape(reasons_text)}</div>
+                <div style="color:#9aa0ab; font-size:0.85rem; margin-top:4px;">{html.escape(reasons_text)}</div>
                 {opener_html}
             </div>
             """,
