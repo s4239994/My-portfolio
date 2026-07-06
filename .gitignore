@@ -9,3 +9,4 @@ invoice-generator/generated_invoices/*.pdf
 portfolio-site/output/
 portfolio-site/contentful_config.json
 web-scraper-pipeline/data/*.db
+signal-engine/.streamlit/secrets.toml

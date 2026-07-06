@@ -1,0 +1,9 @@
+{
+  "target_tech": ["HubSpot", "Salesforce", "Webflow", "Shopify", "Marketo"],
+  "target_keywords": ["B2B", "SaaS", "sales", "marketing", "growth", "startup", "agency", "revenue"],
+  "weights": {
+    "has_careers_page": 25,
+    "tech_match": 15,
+    "keyword_match": 8
+  }
+}
