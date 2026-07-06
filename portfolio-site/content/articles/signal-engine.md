@@ -3,6 +3,8 @@ Date: 2026-07-07
 Tags: python, ai, automation
 Summary: An AI-powered lead enrichment and outreach pipeline -- a self-built version of what GTM automation studios sell as a service.
 
+**[Try it live](https://my-portfolio-beazp4fzwcfb2jmyh9wypx.streamlit.app/)**
+
 An AI-powered lead enrichment and outreach automation pipeline -- upload a
 list of companies, get each one scored against an ideal customer profile
 using real public signals, plus a genuinely personalized outreach opener,

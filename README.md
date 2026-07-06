@@ -17,7 +17,7 @@ for someone else to run it. No project here is a mockup.
 | [support-bot](support-bot/) | AI customer support chatbot with sentiment detection and human hand-off, on a free local model | Python, Ollama, Streamlit | `streamlit run app.py` |
 | [resume-screener](resume-screener/) | Scores a resume against a job description with exact + semantic skill matching and a concept graph | Python, spaCy, sentence-transformers | `streamlit run app.py` |
 | [web-scraper-pipeline](web-scraper-pipeline/) | A streaming scrape → clean → store pipeline with robots.txt compliance built in | Python, requests, BeautifulSoup | `streamlit run app.py` |
-| [signal-engine](signal-engine/) | AI lead enrichment & outreach pipeline — scores real company signals and drafts personalized openers | Python, Streamlit, Claude API | `streamlit run app.py` |
+| [signal-engine](signal-engine/) | AI lead enrichment & outreach pipeline — scores real company signals and drafts personalized openers | Python, Streamlit, Claude API | **[Live demo](https://my-portfolio-beazp4fzwcfb2jmyh9wypx.streamlit.app/)** |
 
 Each project is self-contained — its own `requirements.txt` and its own
 `README.md` with full setup instructions. All but one need no paid account

@@ -1,5 +1,7 @@
 # Signal Engine
 
+**Live demo:** https://my-portfolio-beazp4fzwcfb2jmyh9wypx.streamlit.app/
+
 An AI-powered lead enrichment and outreach automation pipeline — upload a
 list of companies, get each one scored against your ideal customer profile
 using *real* public signals, plus a genuinely personalized outreach opener,
