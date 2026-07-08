@@ -1,0 +1,50 @@
+{
+  "red_flag_phrases": [
+    "rockstar",
+    "ninja",
+    "guru",
+    "wear many hats",
+    "wear multiple hats",
+    "fast-paced environment",
+    "fast paced environment",
+    "work hard, play hard",
+    "work hard play hard",
+    "unlimited pto",
+    "like a family",
+    "we're like a family",
+    "young and dynamic",
+    "self-starter",
+    "other duties as assigned",
+    "competitive salary",
+    "above and beyond",
+    "no 9 to 5",
+    "hustle",
+    "grind culture",
+    "rapidly growing startup"
+  ],
+  "green_flag_phrases": [
+    "salary range",
+    "flexible hours",
+    "flexible working",
+    "remote-first",
+    "remote friendly",
+    "hybrid",
+    "mental health",
+    "paid parental leave",
+    "pay transparency",
+    "four-day week",
+    "9-day fortnight",
+    "equal opportunity",
+    "accessibility",
+    "wellbeing",
+    "work-life balance",
+    "diversity and inclusion",
+    "reasonable adjustments"
+  ],
+  "weights": {
+    "base": 55,
+    "red_flag": 7,
+    "green_flag": 8,
+    "salary_number_bonus": 15
+  }
+}
