@@ -36,7 +36,6 @@ st.markdown(
         background-image: radial-gradient(circle, rgba(10,10,10,0.10) 1.2px, transparent 1.2px);
         background-size: 18px 18px;
     }}
-    [data-testid="stAppViewContainer"] * {{ color: {INK}; }}
     [data-testid="stSidebar"] {{
         background: #ffffff; border-right: 4px solid {INK};
     }}
