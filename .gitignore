@@ -11,3 +11,5 @@ portfolio-site/contentful_config.json
 web-scraper-pipeline/data/*.db
 signal-engine/.streamlit/secrets.toml
 vibe-check/.streamlit/secrets.toml
+pulse-check/.streamlit/secrets.toml
+pulse-check/data/*.db

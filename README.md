@@ -19,20 +19,22 @@ for someone else to run it. No project here is a mockup.
 | [web-scraper-pipeline](web-scraper-pipeline/) | A streaming scrape → clean → store pipeline with robots.txt compliance built in | Python, requests, BeautifulSoup | `streamlit run app.py` |
 | [signal-engine](signal-engine/) | AI lead enrichment & outreach pipeline — scores real company signals and drafts personalized openers | Python, Streamlit, Claude API | **[Live demo](https://my-portfolio-beazp4fzwcfb2jmyh9wypx.streamlit.app/)** |
 | [vibe-check](vibe-check/) | Blunt AI "vibe check" for a company's careers page — scans for corporate-speak red flags and hands back a verdict quoting their own words | Python, Streamlit, Claude API | `streamlit run app.py` |
+| [pulse-check](pulse-check/) | A 5-second emoji team check-in (instead of a long survey) with a live mood trend and an AI-written weekly manager briefing | Python, Streamlit, SQLite, Claude API | `streamlit run app.py` |
 
 Each project is self-contained — its own `requirements.txt` and its own
 `README.md` with full setup instructions. Most need no paid account or API
-key to run; `signal-engine` and `vibe-check` use the Claude API for their AI
-writing step (a fraction of a cent per use), and both fall back to
-API-free functionality if you skip it.
+key to run; `signal-engine`, `vibe-check`, and `pulse-check` use the Claude
+API for their AI writing step (a fraction of a cent per use), and all three
+fall back to API-free functionality if you skip it.
 
 ## Design
 
 Early projects share a dark terminal motif with a neon-green accent
 (`#39FF88`). Later projects each get their own distinct visual identity
-instead — `signal-engine` runs a charcoal-and-electric-blue theme, and
-`vibe-check` runs a Y2K brutalist "rubber stamp" look. Deliberate choice:
-every project should look like its own thing, not a reskin of the last one.
+instead — `signal-engine` runs a charcoal-and-electric-blue theme,
+`vibe-check` runs a Y2K brutalist "rubber stamp" look, and `pulse-check`
+runs a warm coral-and-navy look. Deliberate choice: every project should
+look like its own thing, not a reskin of the last one.
 
 ## License
 
