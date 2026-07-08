@@ -116,16 +116,19 @@ signals_config = scoring.load_signals_config()
 
 with st.sidebar:
     st.header("Signal rules")
+    st.caption("These are editable word lists for the free instant scan below -- add or remove your own.")
     red_input = st.text_area(
         "Red-flag phrases (comma-separated)",
         value=", ".join(signals_config["red_flag_phrases"]),
         height=120,
     )
+    st.caption("e.g. rockstar, ninja, unlimited PTO")
     green_input = st.text_area(
         "Green-flag phrases (comma-separated)",
         value=", ".join(signals_config["green_flag_phrases"]),
         height=120,
     )
+    st.caption("e.g. flexible hours, mental health, pay transparency")
     signals_config = {
         **signals_config,
         "red_flag_phrases": [p.strip().lower() for p in red_input.split(",") if p.strip()],
