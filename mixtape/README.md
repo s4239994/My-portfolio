@@ -39,8 +39,12 @@ Every genre gets one genuinely different mechanic:
 
 ## Running it
 
-Needs a JDK (built and tested on JDK 25). No external dependencies --
-pure Java Swing.
+**Easiest way (Windows):** double-click **`Play Mixtape.bat`**. It runs the
+prebuilt `dist/mixtape.jar` -- needs Java installed
+(https://www.java.com/download/), nothing else.
+
+**From source** (needs a JDK -- built and tested on JDK 25, no external
+dependencies, pure Java Swing):
 
 ```
 mkdir out
@@ -55,6 +59,15 @@ mkdir out
 Get-ChildItem -Recurse -Filter *.java src | ForEach-Object { $_.FullName } | Out-File sources.txt
 javac -d out "@sources.txt"
 java -cp out Main
+```
+
+**Rebuilding the jar** after changing source:
+
+```
+javac -d out $(find src -name "*.java")
+echo "Main-Class: Main" > manifest.txt
+jar cfm dist/mixtape.jar manifest.txt -C out .
+rm manifest.txt
 ```
 
 ## How it's organized
