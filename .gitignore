@@ -16,3 +16,5 @@ pulse-check/data/*.db
 uvos/.streamlit/secrets.toml
 uvos/data/*.db
 shipped/.streamlit/secrets.toml
+mixtape/out/
+mixtape/data/

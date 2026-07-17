@@ -24,6 +24,7 @@ for someone else to run it. No project here is a mockup.
 | [magic-trends](magic-trends/) | A 5-page concept product site for Canva — turns real, currently-circulating aesthetic trends into ready-to-edit palettes and layout packs | HTML, CSS, JS | Open `index.html` |
 | [shipped](shipped/) | A Rovo Agent concept for Atlassian — turns your Jira ticket history into a shareable, Spotify-Wrapped-style sprint recap | Python, Streamlit, Claude API | `streamlit run app.py` |
 | [flow](flow/) | A 3D live venue capacity map concept for ROLLER — explore a whole theme park's wait times as an interactive 3D scene | Three.js, HTML, CSS, JS | Open `index.html` |
+| [mixtape](mixtape/) | A genre hub of original mini-games — each genre inverts one core mechanic instead of cloning an existing game (Action is playable now; more genres in progress) | Java, Swing | `java -cp out Main` |
 
 Each project is self-contained — its own `requirements.txt` (or, for
 `magic-trends` and `flow`, no build step at all) and its own `README.md`
