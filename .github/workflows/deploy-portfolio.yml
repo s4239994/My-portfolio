@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "portfolio-site/**"
+      - "magic-trends/**"
       - ".github/workflows/deploy-portfolio.yml"
   workflow_dispatch: {}
   repository_dispatch:
@@ -43,6 +44,9 @@ jobs:
       - name: Build site with Pelican
         working-directory: portfolio-site
         run: pelican content -s publishconf.py -o output
+
+      - name: Add magic-trends as a subpath
+        run: cp -r magic-trends portfolio-site/output/magic-trends
 
       - uses: actions/upload-pages-artifact@v3
         with:
