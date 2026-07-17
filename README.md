@@ -21,12 +21,14 @@ for someone else to run it. No project here is a mockup.
 | [vibe-check](vibe-check/) | Blunt AI "vibe check" for a company's careers page — scans for corporate-speak red flags and hands back a verdict quoting their own words | Python, Streamlit, Claude API | `streamlit run app.py` |
 | [pulse-check](pulse-check/) | A 5-second emoji team check-in (instead of a long survey) with a live mood trend and an AI-written weekly manager briefing | Python, Streamlit, SQLite, Claude API | `streamlit run app.py` |
 | [uvos](uvos/) | A Linux-desktop-styled sun exposure monitor using real live government UV data and real dermatological burn-time math | Python, Streamlit, SQLite, Claude API | `streamlit run app.py` |
+| [magic-trends](magic-trends/) | A 5-page concept product site for Canva — turns real, currently-circulating aesthetic trends into ready-to-edit palettes and layout packs | HTML, CSS, JS | Open `index.html` |
 
-Each project is self-contained — its own `requirements.txt` and its own
-`README.md` with full setup instructions. Most need no paid account or API
-key to run; `signal-engine`, `vibe-check`, `pulse-check`, and `uvos` use the
-Claude API for their AI writing step (a fraction of a cent per use), and
-all four fall back to API-free functionality if you skip it.
+Each project is self-contained — its own `requirements.txt` (or, for
+`magic-trends`, no build step at all) and its own `README.md` with full
+setup instructions. Most need no paid account or API key to run;
+`signal-engine`, `vibe-check`, `pulse-check`, and `uvos` use the Claude API
+for their AI writing step (a fraction of a cent per use), and all four
+fall back to API-free functionality if you skip it.
 
 ## Design
 
@@ -34,9 +36,11 @@ Early projects share a dark terminal motif with a neon-green accent
 (`#39FF88`). Later projects each get their own distinct visual identity
 instead — `signal-engine` runs a charcoal-and-electric-blue theme,
 `vibe-check` runs a Y2K brutalist "rubber stamp" look, `pulse-check` runs a
-warm coral-and-navy look, and `uvos` runs a Linux-desktop window aesthetic
-with a boot sequence. Deliberate choice: every project should look like its
-own thing, not a reskin of the last one.
+warm coral-and-navy look, `uvos` runs a Linux-desktop window aesthetic with
+a boot sequence, and `magic-trends` runs an editorial moodboard look (a
+near-black canvas, a dusty-parchment card color, and a serif display face)
+built specifically around what that product does. Deliberate choice: every
+project should look like its own thing, not a reskin of the last one.
 
 ## License
 

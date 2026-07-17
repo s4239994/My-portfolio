@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Early access — Magic Trends</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Magic <span>Trends</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="trends.html">Trend gallery</a>
+      <a href="for-you.html">Creators &amp; brands</a>
+      <a href="early-access.html" aria-current="page">Early access</a>
+    </div>
+  </div>
+</nav>
+
+<section style="padding-bottom:1rem;">
+  <div class="wrap">
+    <span class="eyebrow">Coming to Magic Studio</span>
+    <h1 style="font-size:3.2rem; max-width:18em;">Be first to remix a drop.</h1>
+    <p style="font-size:1.05rem; max-width:30em; color:var(--muted);">Leave your email and you'll be the first to know when Magic Trends opens up. No spam, one email, when it's real.</p>
+
+    <form id="waitlist-form" style="margin-top:2rem;">
+      <div class="form-row">
+        <input type="email" id="email-input" placeholder="you@example.com" required aria-label="Email address">
+        <button type="submit" class="btn btn-primary">Notify me</button>
+      </div>
+    </form>
+    <p id="confirm-msg" class="mono" style="color:var(--accent-2); margin-top:1rem; display:none;">✓ You're on the list. Thanks for the interest.</p>
+  </div>
+</section>
+
+<section class="tight" style="border-top:1px solid var(--line);">
+  <div class="wrap">
+    <div class="pin-card" style="max-width:40em; transform:rotate(-1deg);">
+      <span class="eyebrow" style="color:var(--accent);">Why this exists</span>
+      <p>This is a concept feature, designed and built as a self-directed portfolio project — not an official Canva product. It exists to answer one question: what's a feature Canva could plausibly ship next, built the way their own Magic Studio family is built (Magic Design, Dream Lab, Magic Write, Magic Charts), and designed with the same craft their newsroom launch pages get?</p>
+      <p style="margin-bottom:0;">Every trend, palette, and step on this site is real and specific — nothing here is a lorem-ipsum mockup. What isn't real is the backend: no emails are actually collected, and this isn't affiliated with or endorsed by Canva.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Magic Trends — a concept feature for Canva's Magic Studio family.</p>
+    <p>Not an official Canva product. Built as a portfolio piece.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('waitlist-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    document.getElementById('confirm-msg').style.display = 'block';
+    document.getElementById('email-input').value = '';
+  });
+</script>
+
+</body>
+</html>
