@@ -13,3 +13,5 @@ signal-engine/.streamlit/secrets.toml
 vibe-check/.streamlit/secrets.toml
 pulse-check/.streamlit/secrets.toml
 pulse-check/data/*.db
+uvos/.streamlit/secrets.toml
+uvos/data/*.db

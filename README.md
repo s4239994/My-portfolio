@@ -20,21 +20,23 @@ for someone else to run it. No project here is a mockup.
 | [signal-engine](signal-engine/) | AI lead enrichment & outreach pipeline — scores real company signals and drafts personalized openers | Python, Streamlit, Claude API | **[Live demo](https://my-portfolio-beazp4fzwcfb2jmyh9wypx.streamlit.app/)** |
 | [vibe-check](vibe-check/) | Blunt AI "vibe check" for a company's careers page — scans for corporate-speak red flags and hands back a verdict quoting their own words | Python, Streamlit, Claude API | `streamlit run app.py` |
 | [pulse-check](pulse-check/) | A 5-second emoji team check-in (instead of a long survey) with a live mood trend and an AI-written weekly manager briefing | Python, Streamlit, SQLite, Claude API | `streamlit run app.py` |
+| [uvos](uvos/) | A Linux-desktop-styled sun exposure monitor using real live government UV data and real dermatological burn-time math | Python, Streamlit, SQLite, Claude API | `streamlit run app.py` |
 
 Each project is self-contained — its own `requirements.txt` and its own
 `README.md` with full setup instructions. Most need no paid account or API
-key to run; `signal-engine`, `vibe-check`, and `pulse-check` use the Claude
-API for their AI writing step (a fraction of a cent per use), and all three
-fall back to API-free functionality if you skip it.
+key to run; `signal-engine`, `vibe-check`, `pulse-check`, and `uvos` use the
+Claude API for their AI writing step (a fraction of a cent per use), and
+all four fall back to API-free functionality if you skip it.
 
 ## Design
 
 Early projects share a dark terminal motif with a neon-green accent
 (`#39FF88`). Later projects each get their own distinct visual identity
 instead — `signal-engine` runs a charcoal-and-electric-blue theme,
-`vibe-check` runs a Y2K brutalist "rubber stamp" look, and `pulse-check`
-runs a warm coral-and-navy look. Deliberate choice: every project should
-look like its own thing, not a reskin of the last one.
+`vibe-check` runs a Y2K brutalist "rubber stamp" look, `pulse-check` runs a
+warm coral-and-navy look, and `uvos` runs a Linux-desktop window aesthetic
+with a boot sequence. Deliberate choice: every project should look like its
+own thing, not a reskin of the last one.
 
 ## License
 
