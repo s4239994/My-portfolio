@@ -1,0 +1,48 @@
+title,type,resolved_date
+Fix null pointer in auth flow,Bug,2026-04-02
+Add dark mode toggle to settings,Feature,2026-04-03
+Bump dependency versions,Chore,2026-04-03
+Migrate user table to new schema,Task,2026-04-06
+Resolve race condition in payment webhook,Bug,2026-04-07
+Ship CSV export for reports,Feature,2026-04-09
+Fix off-by-one error in pagination,Bug,2026-04-09
+Rotate API keys,Chore,2026-04-10
+Add bulk-delete to admin panel,Feature,2026-04-13
+Squash flaky test in CI pipeline,Bug,2026-04-14
+Upgrade Node to v22,Task,2026-04-16
+Implement SSO login with Okta,Feature,2026-04-17
+Fix broken redirect after logout,Bug,2026-04-17
+Write integration tests for billing,Task,2026-04-20
+Add keyboard shortcuts for navigation,Feature,2026-04-21
+Clean up unused feature flags,Chore,2026-04-21
+Resolve timezone bug in scheduler,Bug,2026-04-23
+Ship real-time collaboration cursors,Feature,2026-04-24
+Fix duplicate notification emails,Bug,2026-04-24
+Update API documentation,Task,2026-04-27
+Add Slack integration for alerts,Feature,2026-04-28
+Patch memory leak in image processor,Bug,2026-04-30
+Fix crash on empty search query,Bug,2026-05-01
+Implement drag-and-drop file upload,Feature,2026-05-04
+Set up staging environment for QA,Task,2026-05-05
+Patch XSS vulnerability in comment field,Bug,2026-05-05
+Archive stale branches,Chore,2026-05-06
+Add multi-language support for onboarding,Feature,2026-05-07
+Fix flaky pagination test on Firefox,Bug,2026-05-07
+Refactor auth middleware,Task,2026-05-07
+Ship API rate limiting dashboard,Feature,2026-05-08
+Renew SSL certificates,Chore,2026-05-08
+Fix stale cache on profile update,Bug,2026-05-11
+Migrate legacy reports to new engine,Task,2026-05-12
+Add CSV import validation,Feature,2026-05-14
+Fix double-charge bug on retry,Bug,2026-05-14
+Tidy up Slack alert noise,Chore,2026-05-15
+Optimize database indexes for search,Task,2026-05-18
+Fix broken avatar upload on Safari,Bug,2026-05-19
+Ship inline comment threads,Feature,2026-05-21
+Fix session timeout firing too early,Bug,2026-05-21
+Remove deprecated v1 endpoints,Chore,2026-05-22
+Add export-to-Notion integration,Feature,2026-05-25
+Fix incorrect totals on refund,Bug,2026-05-26
+Update onboarding docs,Task,2026-05-27
+Ship team activity feed,Feature,2026-05-28
+Fix broken link preview on Slack share,Bug,2026-05-28
