@@ -23,10 +23,11 @@ for someone else to run it. No project here is a mockup.
 | [uvos](uvos/) | A Linux-desktop-styled sun exposure monitor using real live government UV data and real dermatological burn-time math | Python, Streamlit, SQLite, Claude API | `streamlit run app.py` |
 | [magic-trends](magic-trends/) | A 5-page concept product site for Canva — turns real, currently-circulating aesthetic trends into ready-to-edit palettes and layout packs | HTML, CSS, JS | Open `index.html` |
 | [shipped](shipped/) | A Rovo Agent concept for Atlassian — turns your Jira ticket history into a shareable, Spotify-Wrapped-style sprint recap | Python, Streamlit, Claude API | `streamlit run app.py` |
+| [flow](flow/) | A 3D live venue capacity map concept for ROLLER — explore a whole theme park's wait times as an interactive 3D scene | Three.js, HTML, CSS, JS | Open `index.html` |
 
 Each project is self-contained — its own `requirements.txt` (or, for
-`magic-trends`, no build step at all) and its own `README.md` with full
-setup instructions. Most need no paid account or API key to run;
+`magic-trends` and `flow`, no build step at all) and its own `README.md`
+with full setup instructions. Most need no paid account or API key to run;
 `signal-engine`, `vibe-check`, `pulse-check`, `uvos`, and `shipped` use the
 Claude API for their AI writing step (a fraction of a cent per use), and
 all five fall back to API-free functionality if you skip it.
@@ -40,9 +41,10 @@ instead — `signal-engine` runs a charcoal-and-electric-blue theme,
 warm coral-and-navy look, `uvos` runs a Linux-desktop window aesthetic with
 a boot sequence, `magic-trends` runs an editorial moodboard look (a
 near-black canvas, a dusty-parchment card color, and a serif display face)
-built specifically around what that product does, and `shipped` runs a
-bold indigo-and-orange "Wrapped card" look. Deliberate choice: every
-project should look like its own thing, not a reskin of the last one.
+built specifically around what that product does, `shipped` runs a bold
+indigo-and-orange "Wrapped card" look, and `flow` is a bright daytime 3D
+scene instead of a flat page at all. Deliberate choice: every project
+should look like its own thing, not a reskin of the last one.
 
 ## License
 

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flow — a 3D live venue map concept for ROLLER</title>
+<meta name="description" content="A 3D live capacity map concept for ROLLER -- see wait times across a whole venue at a glance.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<canvas id="scene-canvas"></canvas>
+
+<div class="hud">
+  <div class="topbar">
+    <div class="brand">🎢 Flow <small>a ROLLER concept</small></div>
+    <div class="venue-stat">
+      <div class="value" id="stat-capacity">--%</div>
+      <div class="label">venue capacity</div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <h2>Live wait times</h2>
+    <div id="attraction-list"></div>
+  </div>
+
+  <div class="detail-panel" id="detail-panel">
+    <button class="close-btn" id="detail-close">✕</button>
+    <span class="status-pill" id="detail-status">STATUS</span>
+    <h3 id="detail-name">Attraction</h3>
+    <p id="detail-wait">Wait: -- min</p>
+    <p id="detail-capacity">Capacity: --%</p>
+  </div>
+
+  <div class="legend">
+    <span><span class="status-dot" style="background:#22c55e;"></span> Short wait</span>
+    <span><span class="status-dot" style="background:#f59e0b;"></span> Moderate</span>
+    <span><span class="status-dot" style="background:#ef4444;"></span> Long wait</span>
+  </div>
+
+  <div class="hint">Drag to look around · scroll to zoom · click a tower for details</div>
+</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module" src="assets/main.js"></script>
+
+</body>
+</html>

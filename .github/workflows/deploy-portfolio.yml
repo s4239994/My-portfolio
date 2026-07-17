@@ -6,6 +6,7 @@ on:
     paths:
       - "portfolio-site/**"
       - "magic-trends/**"
+      - "flow/**"
       - ".github/workflows/deploy-portfolio.yml"
   workflow_dispatch: {}
   repository_dispatch:
@@ -47,6 +48,9 @@ jobs:
 
       - name: Add magic-trends as a subpath
         run: cp -r magic-trends portfolio-site/output/magic-trends
+
+      - name: Add flow as a subpath
+        run: cp -r flow portfolio-site/output/flow
 
       - uses: actions/upload-pages-artifact@v3
         with:
