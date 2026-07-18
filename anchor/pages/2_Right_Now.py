@@ -1,6 +1,6 @@
 import streamlit as st
 
-from common import db, style
+from common import db, particles, style
 
 st.set_page_config(page_title="Right Now — Anchor", page_icon="\U0001F198", layout="centered")
 style.inject_base_css()
@@ -31,7 +31,7 @@ def always_visible_crisis_line():
 always_visible_crisis_line()
 
 intensity = max(0.0, 1.0 - (st.session_state.rn_step / TOTAL_STEPS))
-style.render_metaphor(metaphor, intensity=intensity, size=180)
+particles.render_scene(metaphor_key, metaphor["color"], intensity=intensity, height=260)
 
 step = st.session_state.rn_step
 

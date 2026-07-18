@@ -2,7 +2,7 @@ from datetime import datetime
 
 import streamlit as st
 
-from common import db, style
+from common import db, particles, style
 
 st.set_page_config(page_title="Anchor", page_icon="⚓", layout="centered")
 style.inject_base_css()
@@ -33,7 +33,7 @@ if meta["metaphor"]:
         f'<p class="muted" style="text-align:center;">Right now, things feel steady. Your plan is ready if you need it.</p>',
         unsafe_allow_html=True,
     )
-    style.render_metaphor(m, intensity=0.15, size=140)
+    particles.render_scene(meta["metaphor"], m["color"], intensity=0.15, height=220)
 else:
     st.markdown(
         """
