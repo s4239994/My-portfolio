@@ -25,6 +25,7 @@ for someone else to run it. No project here is a mockup.
 | [shipped](shipped/) | A Rovo Agent concept for Atlassian — turns your Jira ticket history into a shareable, Spotify-Wrapped-style sprint recap | Python, Streamlit, Claude API | `streamlit run app.py` |
 | [flow](flow/) | A 3D live venue capacity map concept for ROLLER — explore a whole theme park's wait times as an interactive 3D scene | Three.js, HTML, CSS, JS | Open `index.html` |
 | [mixtape](mixtape/) | A genre hub of original mini-games — each genre inverts one core mechanic instead of cloning an existing game (Action is playable now; more genres in progress) | Java, Swing | `java -cp out Main` |
+| [anchor](anchor/) | A personal safety-planning app for hard moments — build your plan while steady, reach it instantly when you're not. Local-only, no tracking, no AI in crisis mode | Python, Streamlit, SQLite | `streamlit run app.py` |
 
 Each project is self-contained — its own `requirements.txt` (or, for
 `magic-trends` and `flow`, no build step at all) and its own `README.md`
@@ -43,9 +44,12 @@ warm coral-and-navy look, `uvos` runs a Linux-desktop window aesthetic with
 a boot sequence, `magic-trends` runs an editorial moodboard look (a
 near-black canvas, a dusty-parchment card color, and a serif display face)
 built specifically around what that product does, `shipped` runs a bold
-indigo-and-orange "Wrapped card" look, and `flow` is a bright daytime 3D
-scene instead of a flat page at all. Deliberate choice: every project
-should look like its own thing, not a reskin of the last one.
+indigo-and-orange "Wrapped card" look, `flow` is a bright daytime 3D scene
+instead of a flat page at all, and `anchor` is deliberately the calmest,
+quietest design in the whole portfolio — soft dawn tones, generous
+whitespace, and a single meaningful red reserved only for its crisis-line
+button, on purpose. Deliberate choice throughout: every project should
+look like its own thing, not a reskin of the last one.
 
 ## License
 

@@ -18,3 +18,4 @@ uvos/data/*.db
 shipped/.streamlit/secrets.toml
 mixtape/out/
 mixtape/data/
+anchor/data/
