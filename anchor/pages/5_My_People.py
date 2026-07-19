@@ -19,8 +19,13 @@ if not contacts:
         st.switch_page("pages/1_Build_My_Plan.py")
 else:
     default_msg = "Hey, I'm having a hard day. Not urgent, but could you check in with me when you can?"
-    for c in contacts:
-        st.markdown(f'<div class="calm-card"><b>{c["name"]}</b><br><span class="muted">{c["relationship"]}</span></div>', unsafe_allow_html=True)
+    for i, c in enumerate(contacts):
+        avatar = style.avatar_circle(c["name"], index=i)
+        st.markdown(
+            f'<div class="calm-card" style="display:flex; align-items:center; gap:0.9rem;">'
+            f'{avatar}<div><b>{c["name"]}</b><br><span class="muted">{c["relationship"]}</span></div></div>',
+            unsafe_allow_html=True,
+        )
         col1, col2 = st.columns(2)
         with col1:
             st.markdown(

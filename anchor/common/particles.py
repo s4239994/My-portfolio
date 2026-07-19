@@ -47,6 +47,13 @@ function initParticles() {
     } else if (TYPE === 'static') {
       particles.push({ x: rand(0, canvas.width), y: rand(0, canvas.height),
                         size: rand(1, 3), life: rand(0, 1) });
+    } else if (TYPE === 'calm') {
+      particles.push({ x: rand(0, canvas.width), y: rand(0, canvas.height),
+                        r: rand(18, 50), dx: rand(-0.15, 0.15), dy: rand(-0.15, 0.15),
+                        phase: rand(0, Math.PI * 2) });
+    } else if (TYPE === 'stars') {
+      particles.push({ x: rand(0, canvas.width), y: rand(0, canvas.height),
+                        r: rand(1, 2.6), phase: rand(0, Math.PI * 2), speed: rand(0.02, 0.05) });
     } else {
       particles.push({ x: rand(0, canvas.width), y: rand(-40, canvas.height * 0.3),
                         r: rand(3, 7), vy: rand(0.4, 1.2), settled: false });
@@ -62,9 +69,14 @@ function draw() {
   t += 1;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  const bgAlpha = 0.06 + INTENSITY * 0.10;
-  ctx.fillStyle = `rgba(${R},${G},${B},${bgAlpha})`;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  if (TYPE === 'stars') {
+    ctx.fillStyle = 'rgba(18,18,42,1)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  } else {
+    const bgAlpha = 0.06 + INTENSITY * 0.10;
+    ctx.fillStyle = `rgba(${R},${G},${B},${bgAlpha})`;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }
 
   if (TYPE === 'storm') {
     if (Math.random() < 0.004 + INTENSITY * 0.02) flashAlpha = 0.5;
@@ -119,6 +131,31 @@ function draw() {
       const shade = Math.random() * 255;
       ctx.fillStyle = `rgba(${shade},${shade},${shade},${0.5 + Math.random() * 0.5})`;
       ctx.fillRect(x, y, 2, 2);
+    }
+  } else if (TYPE === 'calm') {
+    for (const p of particles) {
+      const pulse = 0.5 + 0.5 * Math.sin(t * 0.02 + p.phase);
+      const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
+      const a = (0.10 + INTENSITY * 0.15) * pulse;
+      grad.addColorStop(0, `rgba(${R},${G},${B},${a})`);
+      grad.addColorStop(1, `rgba(${R},${G},${B},0)`);
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+      p.x += p.dx; p.y += p.dy;
+      if (p.x < -60) p.x = canvas.width + 60;
+      if (p.x > canvas.width + 60) p.x = -60;
+      if (p.y < -60) p.y = canvas.height + 60;
+      if (p.y > canvas.height + 60) p.y = -60;
+    }
+  } else if (TYPE === 'stars') {
+    for (const p of particles) {
+      const twinkle = 0.3 + 0.7 * Math.abs(Math.sin(t * p.speed + p.phase));
+      ctx.fillStyle = `rgba(255,255,255,${twinkle})`;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
     }
   } else {
     for (const p of particles) {

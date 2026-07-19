@@ -22,6 +22,10 @@ if st.button("Log today"):
 st.write("")
 history = db.list_mood_log(conn)
 if history:
+    st.markdown("##### Your trend")
+    style.mood_trend_chart(history)
+
+    st.write("")
     st.markdown("##### Your last check-ins")
     labels = {1: "\U0001F62B really hard", 2: "\U0001F614 hard", 3: "\U0001F610 okay", 4: "\U0001F642 good", 5: "\U0001F60A really good"}
     for h in history:

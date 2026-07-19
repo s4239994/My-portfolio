@@ -54,29 +54,76 @@ def inject_base_css():
     )
 
 
-def render_metaphor(metaphor: dict, intensity: float, size: int = 220):
-    """intensity: 1.0 = full storm, 0.0 = fully calmed."""
-    intensity = max(0.0, min(1.0, intensity))
-    duration = 4.0 - intensity * 2.6
-    opacity = 0.32 + intensity * 0.42
-    blur = 14 - intensity * 7
-    color = metaphor["color"]
-    emoji = metaphor["emoji"]
+_PALETTE = ["#7c8fd6", "#e39ec4", "#f5c26b", "#6ec6b0", "#a98ede"]
 
-    html = f"""
-    <div style="display:flex; justify-content:center; align-items:center; height:{size + 40}px; position:relative;">
-      <div style="position:relative; width:{size}px; height:{size}px;">
-        <div style="position:absolute; inset:0; border-radius:50%;
-                    background:{color}; opacity:{opacity};
-                    filter: blur({blur}px);
-                    animation: drift {duration}s ease-in-out infinite;"></div>
-        <div style="position:absolute; inset:15%; border-radius:50%;
-                    background:{color}; opacity:{opacity * 0.8};
-                    filter: blur({blur * 0.7}px);
-                    animation: drift {duration * 1.3}s ease-in-out infinite reverse;"></div>
-        <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
-                    font-size:{int(size * 0.28)}px;">{emoji}</div>
-      </div>
-    </div>
-    """
+
+def icon_card(icon: str, text: str, accent: str = ACCENT):
+    st.markdown(
+        f"""
+        <div style="background:{CALM_CARD}; border-radius:16px; padding:0.9rem 1.2rem;
+                    margin-bottom:0.6rem; box-shadow:0 6px 20px rgba(90,100,160,0.09);
+                    border-left:5px solid {accent}; display:flex; align-items:center; gap:0.7rem;">
+            <span style="font-size:1.3rem;">{icon}</span>
+            <span>{text}</span>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def avatar_circle(name: str, index: int = 0, size: int = 46) -> str:
+    initials = "".join(w[0].upper() for w in name.split()[:2]) or "?"
+    color = _PALETTE[index % len(_PALETTE)]
+    return (
+        f'<div style="width:{size}px; height:{size}px; border-radius:50%; background:{color}; '
+        f'color:white; display:flex; align-items:center; justify-content:center; '
+        f'font-weight:700; font-family:Quicksand,sans-serif; font-size:{int(size*0.38)}px; flex-shrink:0;">'
+        f"{initials}</div>"
+    )
+
+
+def mood_trend_chart(history: list):
+    """history: list of dicts with 'mood' (1-5) and 'logged_at', most recent first."""
+    if not history:
+        return
+    entries = list(reversed(history))
+    colors = {1: "#e35d5d", 2: "#f0925f", 3: "#f0c25f", 4: "#8fc98a", 5: "#6ec6b0"}
+    bars = ""
+    max_h = 70
+    for e in entries:
+        h = int((e["mood"] / 5) * max_h)
+        c = colors.get(e["mood"], ACCENT)
+        bars += (
+            f'<div style="display:flex; flex-direction:column; align-items:center; gap:4px; flex:1;">'
+            f'<div style="width:70%; height:{h}px; background:{c}; border-radius:6px 6px 3px 3px; '
+            f'align-self:flex-end;"></div></div>'
+        )
+    html = (
+        '<div style="display:flex; align-items:flex-end; height:90px; gap:6px; '
+        f'background:{CALM_CARD}; border-radius:16px; padding:1rem 1.2rem; '
+        'box-shadow:0 6px 20px rgba(90,100,160,0.09);">'
+        f"{bars}</div>"
+        f'<p class="muted" style="font-size:0.78rem; margin-top:0.3rem;">Oldest → most recent, left to right.</p>'
+    )
     st.markdown(html, unsafe_allow_html=True)
+
+
+def growth_garden(reflections: list):
+    """A small grid of growing plants, one per reflection, most recent biggest."""
+    if not reflections:
+        return
+    plants = ["\U0001F331", "\U0001F33F", "\U0001F340", "\U0001F33B", "\U0001FAB4"]
+    cells = ""
+    for i, r in enumerate(reflections):
+        plant = plants[i % len(plants)]
+        size = 2.4 if i == 0 else 1.7
+        cells += (
+            f'<div style="text-align:center; background:{CALM_CARD}; border-radius:14px; '
+            f'padding:0.8rem; box-shadow:0 6px 16px rgba(90,100,160,0.08);">'
+            f'<div style="font-size:{size}rem;">{plant}</div></div>'
+        )
+    st.markdown(
+        f'<div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(80px, 1fr)); '
+        f'gap:0.7rem; margin-bottom:1rem;">{cells}</div>',
+        unsafe_allow_html=True,
+    )

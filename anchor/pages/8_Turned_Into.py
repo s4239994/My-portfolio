@@ -25,6 +25,11 @@ if st.button("Save this") and entry.strip():
 st.write("")
 reflections = db.list_growth_reflections(conn)
 if reflections:
+    st.markdown("##### Your garden")
+    st.markdown('<p class="muted" style="font-size:0.85rem;">One plant per reflection you\'ve written -- your most recent, a little bigger.</p>', unsafe_allow_html=True)
+    style.growth_garden(reflections)
+
+    st.write("")
     st.markdown("##### What you've written before")
     for r in reflections:
         st.markdown(

@@ -11,23 +11,23 @@ st.markdown('<p class="muted">These are staffed by trained people, not an app. C
 st.markdown(
     """
     <div class="crisis-line-card">
-    <b>Immediate danger:</b> Call <b>000</b> (Australia)
+    \U0001F6A8&nbsp; <b>Immediate danger:</b> Call <b>000</b> (Australia)
     </div>
     <div class="crisis-line-card">
-    <b>Lifeline Australia</b> — 24/7 crisis support<br>
-    Call <b>13 11 14</b> · Text <b>0477 13 11 14</b>
+    \U0001F4DE&nbsp; <b>Lifeline Australia</b> — 24/7 crisis support<br>
+    <span style="padding-left:1.6rem;">Call <b>13 11 14</b> · Text <b>0477 13 11 14</b></span>
     </div>
     <div class="crisis-line-card">
-    <b>Beyond Blue</b> — anxiety, depression, suicide prevention<br>
-    Call <b>1300 22 4636</b>
+    \U0001F4DE&nbsp; <b>Beyond Blue</b> — anxiety, depression, suicide prevention<br>
+    <span style="padding-left:1.6rem;">Call <b>1300 22 4636</b></span>
     </div>
     <div class="crisis-line-card">
-    <b>Kids Helpline</b> — for under-25s<br>
-    Call <b>1800 55 1800</b>
+    \U0001F4DE&nbsp; <b>Kids Helpline</b> — for under-25s<br>
+    <span style="padding-left:1.6rem;">Call <b>1800 55 1800</b></span>
     </div>
     <div class="crisis-line-card">
-    <b>13YARN</b> — for Aboriginal and Torres Strait Islander peoples<br>
-    Call <b>13 92 76</b>
+    \U0001F4DE&nbsp; <b>13YARN</b> — for Aboriginal and Torres Strait Islander peoples<br>
+    <span style="padding-left:1.6rem;">Call <b>13 92 76</b></span>
     </div>
     """,
     unsafe_allow_html=True,
